@@ -318,40 +318,7 @@
 </main>
 
 <script>
-  // Profile picture upload
-  const profilePic = document.getElementById('profilePic');
-  const profileInput = document.getElementById('profilePicUpload');
-  profilePic.addEventListener('click', () => { profileInput.click(); });
-  profileInput.addEventListener('change', e => {
-    const file = e.target.files[0];
-    if(file && file.type.startsWith('image/')) {
-      const reader = new FileReader();
-      reader.onload = () => { profilePic.src = reader.result; };
-      reader.readAsDataURL(file);
-    }
-  });
-
-  // Generic image upload for projects and experience
-  document.querySelectorAll('input[type="file"]').forEach(input => {
-    if(input !== profileInput) {
-      input.style.display = 'none';
-      const imgId = input.getAttribute('data-imgid');
-      const imgElem = document.getElementById(imgId);
-      if(imgElem) {
-        imgElem.style.cursor = 'pointer';
-        imgElem.onclick = () => input.click();
-      }
-      input.addEventListener('change', e => {
-        const file = e.target.files[0];
-        if(file && file.type.startsWith('image/')) {
-          const reader = new FileReader();
-          reader.onload = () => { imgElem.src = reader.result; };
-          reader.readAsDataURL(file);
-        }
-      });
-    }
-  });
-
+ 
   // Navigation active link toggle on click
   const navLinks = document.querySelectorAll('nav a');
   navLinks.forEach(link => link.addEventListener('click', e => {
@@ -362,3 +329,4 @@
 
 </body>
 </html>
+
