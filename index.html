@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Portofolio</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap');
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #232224, #070707);
+    color: #e0e0ff;
+    overflow-x: hidden;
+  }
+  header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(15, 15, 15, 0.9);
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem;
+    height: 60px;
+    backdrop-filter: saturate(180%) blur(15px);
+    box-shadow: 0 2px 10px #7b3aff88;
+  }
+  header h1 {
+    font-weight: 700;
+    letter-spacing: 4px;
+    font-size: 1.3rem;
+    color:#d0bbff;
+  }
+  nav {
+    display: flex;
+    gap: 1rem;
+  }
+  nav a {
+    color: #bb9eff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+  }
+  nav a:hover, nav a.active {
+    color: #fff;
+    background: #8a43ff;
+    box-shadow: 0 0 12px #d18fff;
+  }
+  main {
+    padding-top: 70px;
+    max-width: 500px;
+    margin: 0 auto 3rem auto;
+  }
+  section {
+    padding: 2rem 1.5rem;
+    border-bottom: 1px solid #5d3aff33;
+  }
+  .profile-pic {
+    width: 180px;
+    height: 230px;
+    border-radius: 20px;
+    object-fit: cover;
+    margin: 0 auto 1.2rem auto;
+    border: 5px solid #b995ff;
+    cursor: pointer;
+    box-shadow: 0 0 15px #a974ffcc;
+    transition: transform 0.3s ease;
+    display: block;
+  }
+  .profile-pic:hover {
+    transform: scale(1.05);
+  }
+  .section-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #b399ff;
+    margin-bottom: 1.3rem;
+    letter-spacing: 1.7px;
+    text-align: center;
+    text-shadow: 0 0 10px #8a43ffaa;
+  }
+  .about-text, .experience-item, .skill-list, .project-list, .contact-info {
+    font-weight: 400;
+    line-height: 1.6;
+    color: #d8d5f9;
+    text-align: center;
+  }
+  .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+  .skill-item {
+    background: linear-gradient(135deg, #a374ff, #5d38ff);
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #eef1ff;
+    box-shadow: 0 3px 8px #7c54ffaa;
+    transition: box-shadow 0.3s ease;
+  }
+  .skill-item:hover {
+    box-shadow: 0 6px 14px #dbb9ffdd;
+  }
+  .project-list, .experience-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  .project-item, .experience-item {
+    margin-bottom: 2rem;
+    background: #3c1599dd;
+    border-radius: 16px;
+    padding: 1rem;
+    box-shadow: 0 0 20px #b584ffbb;
+    text-align: center;
+    transition: box-shadow 0.4s ease;
+  }
+  .project-item:hover, .experience-item:hover {
+    box-shadow: 0 0 30px #d9bbffcc;
+  }
+  .project-item h4, .experience-item h4 {
+    color: #e6d9ff;
+    margin: 0.4rem 0 0.8rem 0;
+    font-size: 1.3rem;
+  }
+  .project-item p, .experience-item p {
+    margin: 0 0 0.7rem 0;
+    font-size: 1rem;
+    color: #cbc3fb;
+  }
+  .project-img, .experience-img {
+    width: 100%;
+    height: 160px;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    object-fit: cover;
+    box-shadow: 0 4px 15px #7200ffbb;
+    transition: transform 0.3s ease;
+  }
+  .project-img:hover, .experience-img:hover {
+    transform: scale(1.06);
+  }
+  .contact-info a {
+    color: #b599ff;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.6rem;
+    font-size: 1.05rem;
+  }
+  .contact-info a:hover {
+    color: #efdeff;
+    text-shadow: 0 0 6px #bb99ffbb;
+  }
+  input[type="file"] {
+    display: none;
+  }
+
+  /* Mobile specific */
+  @media (max-width: 480px) {
+    header {
+      padding: 0 1rem;
+      height: 50px;
+    }
+    header h1 {
+      font-size: 1rem;
+      letter-spacing: 2px;
+    }
+    nav {
+      gap: 0.6rem;
+    }
+    nav a {
+      font-size: 0.9rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: 12px;
+    }
+    main {
+      padding-top: 60px;
+      margin: 0 1rem;
+    }
+    section {
+      padding: 1.2rem 0.8rem;
+      border-bottom: 1px solid #6711ff33;
+    }
+    .profile-pic {
+      width: 140px;
+      height: 180px;
+      border-width: 4px;
+      border-radius: 14px;
+    }
+    .section-title {
+      font-size: 1.4rem;
+    }
+    .skill-item {
+      font-size: 0.9rem;
+      padding: 0.4rem 0.9rem;
+    }
+    .project-item h4, .experience-item h4 {
+      font-size: 1.1rem;
+    }
+    .project-item p, .experience-item p, .about-text, .contact-info a {
+      font-size: 0.95rem;
+    }
+    .contact-info a {
+      margin-bottom: 0.4rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>PORTOFOLIO</h1>
+  <nav>
+    <a href="#profile" class="active">Profile</a>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skill</a>
+    <a href="#projects">Project</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section id="profile">
+    <label for="profilePicUpload" aria-label="Change Profile Picture">
+      <img src="image/foto-saya.jpg" alt="Profile Picture" class="profile-pic" id="profilePic" />
+    </label>
+    <input type="file" id="profilePicUpload" accept="image/*" />
+    <h2 class="section-title">Muhammad Azhka</h2>
+    <p class="about-text">Web Developer | Cyber secucity enthusiast</p>
+  </section>
+
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <p class="about-text">
+      Passionate Web3 developer with deep expertise in blockchain technologies and UI/UX design. Striving to build decentralized applications that revolutionize user experiences.
+    </p>
+  </section>
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+        <img src="https://swamediainc.storage.googleapis.com/swa.co.id/wp-content/uploads/2022/10/03100030/IMG-20221001-WA0006-1.jpg" alt="Education image" style="max-width: 720px; width:100%; height:auto;" />
+        <p class="about-text">
+        <h1>Universitas Bina Sarana Informatika</h1>
+        <h3>Information System</h3>
+        <p>Bachelor of Computer Science,  2025 - Present</p>
+        
+        </p>
+    </section>
+
+  <section id="skills">
+    <h2 class="section-title">Skills</h2>
+    <div class="skill-list">
+      <div class="skill-item">Html</div>
+      <div class="skill-item">Css</div>
+      <div class="skill-item">JavaScript</div>
+      <div class="skill-item">Python</div>
+      <div class="skill-item">Node.js</div>
+      <div class="skill-item">MySQL</div>
+      <div class="skill-item">UI/UX Design</div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <ul class="project-list">
+      <li class="project-item">
+        <img src="https://blog.clover.com/wp-content/uploads/2023/11/person-scanning-qr-code-menu-on-table.jpg" alt="Decentralized Marketplace" class="project-img" id="proj1" />
+        <h4>Digital QR Menu Solution</h4>
+        <p>An e-commerce platform powered by smart contracts ensuring trustless transactions.</p>
+        <input type="file" data-imgid="proj1" accept="image/*" />
+      </li>
+      <li class="project-item">
+        <img src="https://www.codewithrandom.com/wp-content/uploads/2023/04/codewithrandom-49.png" alt="NFT Gallery" class="project-img" id="proj2" />
+        <h4>Smart Parking System -Python</h4>
+        <p>Interactive gallery showcasing blockchain-authenticated NFTs owned by users.</p>
+        <input type="file" data-imgid="proj2" accept="image/*" />
+      </li>
+    </ul>
+  </section>
+
+  <section id="experience">
+    <h2 class="section-title">Experience</h2>
+    <ul class="experience-list">
+      <li class="experience-item">
+        <img src="https://tse2.mm.bing.net/th/id/OIP.V3G9RZlaXU2ZlORBqOOqHwAAAA?rs=1&pid=ImgDetMain&o=7&rm=3" alt="CryptoTech" class="experience-img" id="exp1" />
+        <h4>PT.Waroeng Steak indonesia</h4>
+        <p>2022 - 2024| Staff</p>
+        <input type="file" data-imgid="exp1" accept="image/*" />
+      </li>
+      <li class="experience-item">
+        <img src="https://bcafinance.co.id/Media/Default/Images/img-detail.jpg" alt="Web3 Innovations" class="experience-img" id="exp2" />
+        <h4>Bank BCA</h4>
+        <p>2024 - Present | Expedition</p>
+        <input type="file" data-imgid="exp2" accept="image/*" />
+      </li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Contact Me</h2>
+    <div class="contact-info">
+      <a href="mailto:john.doe@example.com">Email : azskaazska266@gmail.com</a>
+      <a href="tel:+1234567890">Phone: +62-8897-2050-142</a>
+      <a href="https://www.linkedin.com/in/muhammad-azhka-666551366/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/azska121" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+  </section>
+</main>
+
+<script>
+  // Profile picture upload
+  const profilePic = document.getElementById('profilePic');
+  const profileInput = document.getElementById('profilePicUpload');
+  profilePic.addEventListener('click', () => { profileInput.click(); });
+  profileInput.addEventListener('change', e => {
+    const file = e.target.files[0];
+    if(file && file.type.startsWith('image/')) {
+      const reader = new FileReader();
+      reader.onload = () => { profilePic.src = reader.result; };
+      reader.readAsDataURL(file);
+    }
+  });
+
+  // Generic image upload for projects and experience
+  document.querySelectorAll('input[type="file"]').forEach(input => {
+    if(input !== profileInput) {
+      input.style.display = 'none';
+      const imgId = input.getAttribute('data-imgid');
+      const imgElem = document.getElementById(imgId);
+      if(imgElem) {
+        imgElem.style.cursor = 'pointer';
+        imgElem.onclick = () => input.click();
+      }
+      input.addEventListener('change', e => {
+        const file = e.target.files[0];
+        if(file && file.type.startsWith('image/')) {
+          const reader = new FileReader();
+          reader.onload = () => { imgElem.src = reader.result; };
+          reader.readAsDataURL(file);
+        }
+      });
+    }
+  });
+
+  // Navigation active link toggle on click
+  const navLinks = document.querySelectorAll('nav a');
+  navLinks.forEach(link => link.addEventListener('click', e => {
+    navLinks.forEach(l => l.classList.remove('active'));
+    e.target.classList.add('active');
+  }));
+</script>
+
+</body>
+</html>
